@@ -1,0 +1,13 @@
+<h1> Welcome to the Flickr Search Page </h1>
+
+<%= form_with url: root_path, local: true, method: "get" do |f| %>
+    <%= f.label 'ID:' %>
+    <%= f.text_field :user_id %><br><br>
+    <%= f.submit 'Submit' %>
+  <% end %>
+  
+  <% if @photos %>
+    <% @photos.each do |photo| %>
+      <img src=<%=Flickr.url(photo)%> ><br>
+    <% end %>
+  <% end %>
